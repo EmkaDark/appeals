@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const appeal_controller_1 = require("../controllers/appeal.controller");
+const router = (0, express_1.Router)();
+router.post("/appeals", appeal_controller_1.AppealController.createAppeal);
+router.patch("/appeals/:id/start", appeal_controller_1.AppealController.startWork);
+router.patch("/appeals/:id/complete", appeal_controller_1.AppealController.endAppeal);
+router.patch("/appeals/:id/cancel", appeal_controller_1.AppealController.cancelAppeal);
+router.get("/appeals", appeal_controller_1.AppealController.getAppeals);
+router.post("/appeals/cancel/all", appeal_controller_1.AppealController.cancelAll);
+exports.default = router;
